@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>You're On The Waitlist | Self-Publishing Studio</title>
+  <meta name="description" content="You're on the waitlist for the Self-Publishing Studio. We'll be in touch when enrollment opens." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+  <style>
+    /* ── SPS design tokens ── */
+    :root {
+      --ink-950: #08111F;
+      --ink-900: #0C1929;
+      --ink-800: #142539;
+      --ink-700: #1E3550;
+      --ink-600: #2A4566;
+      --ink-500: #3E5C82;
+      --ink-300: #8AA0C0;
+      --ink-200: #B5C4D9;
+      --butter-700: #B8A648;
+      --butter-600: #D8C25A;
+      --butter-500: #EFE183;
+      --butter-400: #F4E89A;
+      --paper-100: #FBF7EC;
+      --paper-200: #F5EEDA;
+      --rust-500: #B8633A;
+
+      --font-display: "Anton", "Bebas Neue", Impact, system-ui, sans-serif;
+      --font-sans:    "Inter", system-ui, -apple-system, sans-serif;
+      --font-serif:   "Newsreader", "Iowan Old Style", Georgia, serif;
+
+      --shadow-hard: 8px 8px 0 var(--ink-950);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--ink-900); }
+    ::selection { background: var(--butter-500); color: var(--ink-900); }
+
+    body {
+      font-family: var(--font-sans);
+      font-weight: 400;
+      background-color: var(--ink-900);
+      color: var(--paper-100);
+      min-height: 100vh;
+      padding: 36px 20px 72px;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      line-height: 1.5;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Brand book-spine texture — low-contrast blue book silhouettes
+       on the navy canvas. Fades out toward the bottom of the page. */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background: url('./assets/book-pattern.svg') center top / 480px repeat;
+      opacity: 0.55;
+      mask-image: linear-gradient(180deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.55) 45%, rgba(0,0,0,0.0) 90%);
+      -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.55) 45%, rgba(0,0,0,0.0) 90%);
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 680px;
+      width: 100%;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      animation: fadeUp 0.6s cubic-bezier(0.16, 0.84, 0.36, 1);
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─── Display headline ─── */
+    h1.display {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: clamp(32px, 5.5vw, 52px);
+      line-height: 0.92;
+      letter-spacing: -0.005em;
+      text-transform: uppercase;
+      color: var(--paper-100);
+      margin-bottom: 20px;
+    }
+
+    h1.display .accent {
+      color: var(--butter-500);
+    }
+
+    /* ─── Sneak-peek card ─── */
+    .card {
+      background: var(--ink-800);
+      border: 1px solid var(--ink-700);
+      border-radius: 3px;
+      padding: 22px 24px 20px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-hard);
+    }
+
+    .card-eyebrow {
+      font-family: var(--font-sans);
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--butter-500);
+      margin-bottom: 10px;
+    }
+
+    .card h2 {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: clamp(22px, 3.5vw, 30px);
+      line-height: 0.95;
+      letter-spacing: -0.005em;
+      text-transform: uppercase;
+      color: var(--paper-100);
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      font-family: var(--font-serif);
+      font-size: 15px;
+      line-height: 1.55;
+      color: var(--paper-200);
+    }
+
+    .card p strong {
+      color: var(--butter-500);
+      font-weight: 600;
+    }
+
+    /* ─── Survey embed ─── */
+    .survey-section {
+      margin-top: 8px;
+    }
+
+    .survey-embed {
+      width: 100%;
+      background: var(--ink-800);
+      border: 1px solid var(--ink-700);
+      border-radius: 3px;
+      height: 480px;
+      overflow: hidden;
+      box-shadow: var(--shadow-hard);
+    }
+
+    .survey-embed iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* ─── Footer ─── */
+    footer {
+      margin-top: 32px;
+      text-align: center;
+      font-family: var(--font-sans);
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      color: var(--ink-500);
+    }
+
+    footer .wordmark {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: 14px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--butter-500);
+      margin-bottom: 8px;
+    }
+
+    @media (max-width: 640px) {
+      body { padding: 28px 18px 56px; }
+      .card { padding: 20px 20px 18px; }
+      h1.display { font-size: clamp(28px, 8vw, 40px); }
+      .survey-embed { height: 460px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Headline -->
+    <h1 class="display">
+      Boom! You're <span class="accent">on the waitlist.</span>
+    </h1>
+
+    <!-- Sneak-peek card -->
+    <div class="card">
+      <div class="card-eyebrow">In the meantime</div>
+      <h2>Want a sneak peek?</h2>
+      <p>Answer <strong>3 quick questions</strong> and we'll give you<br>free access to our Perfect Book Title Generator.</p>
+    </div>
+
+    <!-- Typeform survey -->
+    <div class="survey-section">
+      <div class="survey-embed">
+        <iframe id="typeform-embed" title="Sneak Peek Form" allow="camera; microphone; autoplay; encrypted-media;"></iframe>
+      </div>
+    </div>
+
+    <footer>
+      <div class="wordmark">Self-Publishing Studio</div>
+      &copy; 2026 Self-Publishing Studio. All rights reserved.
+    </footer>
+  </div>
+
+  <script>
+    // Parse email manually so literal "+" survives (URLSearchParams would turn it into a space)
+    function readEmail(source) {
+      var match = source.match(/(?:^|[?&#])email=([^&]*)/);
+      if (!match) return '';
+      try { return decodeURIComponent(match[1]); } catch (e) { return match[1]; }
+    }
+    var email = readEmail(window.location.hash) || readEmail(window.location.search) || 'xxxxx';
+    var typeformId = 'eoCgW6Rr';
+    var src = 'https://form.typeform.com/to/' + typeformId + '#email=' + encodeURIComponent(email);
+    document.getElementById('typeform-embed').src = src;
+  </script>
+</body>
+</html>
