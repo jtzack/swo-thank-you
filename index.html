@@ -97,12 +97,14 @@
     h1.display {
       font-family: var(--s30-font-sans);
       font-weight: 900;
-      font-size: clamp(40px, 7vw, 72px);
-      line-height: 0.98;
+      /* Sized in vw so the headline scales to stay on a single line
+         instead of wrapping — keeps the hero short so the form fits. */
+      font-size: clamp(20px, 5.4vw, 44px);
+      line-height: 1.0;
       letter-spacing: -0.02em;
       color: var(--s30-fg);
-      margin-bottom: 28px;
-      text-wrap: balance;
+      margin-bottom: 24px;
+      white-space: nowrap;
     }
 
     /* Accent gets the signature sunset gradient as text fill */
