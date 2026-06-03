@@ -159,6 +159,9 @@
       font-weight: 700;
     }
 
+    /* Short copy is a mobile-only swap for the longer desktop sentence */
+    .card p.short-copy { display: none; }
+
     /* ─── Survey embed ─── */
     .survey-section {
       margin-top: 8px;
@@ -212,12 +215,12 @@
       h1.display { margin-bottom: 16px; }
       .card { padding: 20px 18px 18px; margin-bottom: 16px; }
 
-      /* Trim the card copy on phones: hide the module callout and shrink the
-         text so the hero stays short and the form needs less scrolling. */
-      .long-copy { display: none; }
+      /* Trim the card on phones: drop the eyebrow, swap in the short one-line
+         copy, and shrink the heading so the hero stays compact. */
+      .card-eyebrow { display: none; }
+      .card p.long-copy { display: none; }
+      .card p.short-copy { display: block; font-size: 14px; }
       .card h2 { font-size: 22px; margin-bottom: 10px; }
-      .card p { font-size: 15px; }
-      .card-eyebrow { font-size: 11px; margin-bottom: 8px; }
 
       /* Let the embed fill most of the viewport instead of a fixed 460px so
          Typeform's questions + button aren't cut off. dvh tracks the visible
@@ -239,7 +242,8 @@
     <div class="card">
       <div class="card-eyebrow">In the meantime</div>
       <h2>Want a sneak peek?</h2>
-      <p>Answer <strong>3 quick questions</strong> and we'll give you a free sneak peek<span class="long-copy"> of our <strong>Become Known For A Niche You Own</strong> module</span>.</p>
+      <p class="long-copy">Answer <strong>3 quick questions</strong> and we'll give you a free sneak peek of our <strong>Become Known For A Niche You Own</strong> module.</p>
+      <p class="short-copy">Answer <strong>3 quick questions</strong> and we'll send it over.</p>
     </div>
 
     <!-- Typeform survey -->
