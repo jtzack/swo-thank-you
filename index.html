@@ -210,7 +210,14 @@
       /* Tighter chrome on phones so the form gets the lion's share of the screen */
       body { padding: 20px 16px 28px; }
       h1.display { margin-bottom: 16px; }
-      .card { padding: 22px 20px 20px; margin-bottom: 18px; }
+      .card { padding: 20px 18px 18px; margin-bottom: 16px; }
+
+      /* Trim the card copy on phones: hide the module callout and shrink the
+         text so the hero stays short and the form needs less scrolling. */
+      .long-copy { display: none; }
+      .card h2 { font-size: 22px; margin-bottom: 10px; }
+      .card p { font-size: 15px; }
+      .card-eyebrow { font-size: 11px; margin-bottom: 8px; }
 
       /* Let the embed fill most of the viewport instead of a fixed 460px so
          Typeform's questions + button aren't cut off. dvh tracks the visible
@@ -232,7 +239,7 @@
     <div class="card">
       <div class="card-eyebrow">In the meantime</div>
       <h2>Want a sneak peek?</h2>
-      <p>Answer <strong>3 quick questions</strong> and we'll give you a free sneak peek of our <strong>Become Known For A Niche You Own</strong> module.</p>
+      <p>Answer <strong>3 quick questions</strong> and we'll give you a free sneak peek<span class="long-copy"> of our <strong>Become Known For A Niche You Own</strong> module</span>.</p>
     </div>
 
     <!-- Typeform survey -->
