@@ -162,6 +162,9 @@
     /* Short copy is a mobile-only swap for the longer desktop sentence */
     .card p.short-copy { display: none; }
 
+    /* The in-card headline is a mobile-only relocation of the hero */
+    .display.hero-in-card { display: none; }
+
     /* ─── Survey embed ─── */
     .survey-section {
       margin-top: 8px;
@@ -213,14 +216,20 @@
       /* Tighter chrome on phones so the form gets the lion's share of the screen */
       body { padding: 20px 16px 28px; }
       h1.display { margin-bottom: 16px; }
-      .card { padding: 20px 18px 18px; margin-bottom: 16px; }
+      .card { padding: 22px 14px 18px; margin-bottom: 16px; }
+
+      /* Move the hero headline into the card; hide the standalone one. The
+         card's padding leaves less width, so on the narrowest phones let the
+         nowrap headline scale down a hair to stay on one line. */
+      .display.hero-outer { display: none; }
+      .display.hero-in-card { display: block; margin-bottom: 16px; font-size: clamp(17px, 5.4vw, 44px); }
 
       /* Trim the card on phones: drop the eyebrow, swap in the short one-line
-         copy, and shrink the heading so the hero stays compact. */
+         copy, and shrink the "Want a sneak peek?" heading. */
       .card-eyebrow { display: none; }
       .card p.long-copy { display: none; }
       .card p.short-copy { display: block; font-size: 14px; }
-      .card h2 { font-size: 22px; margin-bottom: 10px; }
+      .card h2 { font-size: 18px; margin-bottom: 8px; }
 
       /* Let the embed fill most of the viewport instead of a fixed 460px so
          Typeform's questions + button aren't cut off. dvh tracks the visible
@@ -233,13 +242,17 @@
 <body>
   <div class="container">
 
-    <!-- Headline -->
-    <h1 class="display">
+    <!-- Headline (desktop/tablet: above the card) -->
+    <h1 class="display hero-outer">
       Boom! You're <span class="accent">on the waitlist.</span>
     </h1>
 
     <!-- Sneak-peek card -->
     <div class="card">
+      <!-- Mobile-only: headline moves inside the card -->
+      <h1 class="display hero-in-card">
+        Boom! You're <span class="accent">on the waitlist.</span>
+      </h1>
       <div class="card-eyebrow">In the meantime</div>
       <h2>Want a sneak peek?</h2>
       <p class="long-copy">Answer <strong>3 quick questions</strong> and we'll give you a free sneak peek of our <strong>Become Known For A Niche You Own</strong> module.</p>
