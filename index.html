@@ -207,9 +207,16 @@
     }
 
     @media (max-width: 640px) {
-      body { padding: 28px 18px 56px; }
-      .card { padding: 26px 22px 24px; }
-      .survey-embed { height: 460px; }
+      /* Tighter chrome on phones so the form gets the lion's share of the screen */
+      body { padding: 20px 16px 28px; }
+      h1.display { margin-bottom: 16px; }
+      .card { padding: 22px 20px 20px; margin-bottom: 18px; }
+
+      /* Let the embed fill most of the viewport instead of a fixed 460px so
+         Typeform's questions + button aren't cut off. dvh tracks the visible
+         area as the mobile browser chrome shows/hides (vh would not). The px
+         height is a fallback for browsers without dvh support. */
+      .survey-embed { height: 520px; height: 80dvh; min-height: 440px; }
     }
   </style>
 </head>
